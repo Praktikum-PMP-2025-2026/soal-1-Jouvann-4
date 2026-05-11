@@ -84,12 +84,12 @@ int main(){
         
     }
 
-    printf("MAX VERTEX %d\n", idxMax);
+    printf("MAX_VERTEX %d\n", idxMax);
     if (kosong == 100){
         printf("ISOLATED NONE");
     } 
     else{
-        printf("ISOLATED %d\n", kosong);
+        printf("ISOLATED %d", kosong);
     }
     //hitungDerajat(matrix);
 
