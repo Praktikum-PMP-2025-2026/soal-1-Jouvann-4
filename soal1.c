@@ -19,6 +19,7 @@ int maxVertex[20];
 int idxMax = -1;
 int temp = -1;
 int kosong = 100;
+int listKosong[20];
 
 
 void readInput(){
@@ -71,6 +72,7 @@ int main(){
         printf("DEGREE %d %d\n", i, tempCounter);
     }
 
+    counter = 0;
     for (int i = 0; i < dimensi; i++){
         //printf("MAX VERTEX %d %d\n", i, maxVertex[i]);
         if (maxVertex [i] > temp){
@@ -78,8 +80,10 @@ int main(){
             temp = maxVertex[i];
             idxMax = i;
         }
-        if (maxVertex[i] == 0 && i < kosong) {
-            kosong = i;
+        if (maxVertex[i] == 0) {
+            listKosong[counter] = i;
+            kosong = 1;
+            counter++;
         }
         
     }
@@ -89,7 +93,24 @@ int main(){
         printf("ISOLATED NONE");
     } 
     else{
-        printf("ISOLATED %d", kosong);
+        if (counter == 1){
+            printf("ISOLATED %d", listKosong[0]);
+        }
+        else{
+            for (int i = 0; i < counter; i++){
+                if (i == 0){
+                    printf("ISOLATED %d", listKosong[i]);
+                }
+                else if (i == counter - 1){
+                    printf(" %d\n", listKosong[i]);
+                }
+                else{
+                    printf(" %d", listKosong[i]);
+                }
+            }
+        }
+        
+        
     }
     //hitungDerajat(matrix);
 
